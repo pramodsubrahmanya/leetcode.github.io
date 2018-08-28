@@ -1,5 +1,5 @@
 $.ajax({
-    url: "http://code.groupsone.com/leetcode.github.io/header.html",
+    url: "http://code.groupsone.com/header.html",
     success: function (data) {
         $('body').append(data);
     },
