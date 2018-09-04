@@ -2,6 +2,11 @@ package code;
 
 public class AtoI {
 
+    public static void main(String[] args) {
+        String str = "2147483648";
+        System.out.println(new AtoI().myAtoi(str));
+    }
+
     public int myAtoi(String str) {
         int n = str.length();
         int i = 0;
@@ -41,11 +46,6 @@ public class AtoI {
             return -number;
         }
         return number;
-    }
-
-    public static void main(String[] args) {
-        String str = "2147483648";
-        System.out.println(new AtoI().myAtoi(str));
     }
 
 }
