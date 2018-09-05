@@ -61,9 +61,11 @@ body {
     margin-bottom: 30px;
     border-radius: 5px;
 }
-.pre {
-    color: white;
+
+pre {
+    background-color: #f7fafb0a !important;
 }
+
 .cutebox-blog-page {
     padding: 10px;
     border: 1px solid #D1D1E8;
