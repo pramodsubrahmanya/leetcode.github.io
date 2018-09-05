@@ -1,27 +1,29 @@
 package framework;
 
-import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Properties;
+import java.util.stream.Stream;
 
 public class CodeGenerator {
 
-    public static void main(String[] args) {
-        try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
-            System.out.println("Prop File: ");
-            String propFile = br.readLine();
-            Properties properties = new Properties();
-            String props = CodeConfiguration.PROPERTIES_PATH.getValue() + propFile;
-            properties.load(new FileInputStream(props));
-            new CodeGenerator().generateHtml(properties);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public static void main(String[] args) throws IOException {
+        CodeGenerator generator = new CodeGenerator();
+        Stream<Path> list = Files.list(Paths.get(CodeConfiguration.PROPERTIES_PATH.getValue()));
+        list.forEach(file -> {
+            try {
+                Properties properties = new Properties();
+                properties.load(new FileInputStream(file.toFile().getAbsolutePath()));
+                generator.generateHtml(properties);
+                System.out.println("Generated : " + file.getFileName());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        });
     }
 
     public void generateHtml(Properties properties) throws Exception {
