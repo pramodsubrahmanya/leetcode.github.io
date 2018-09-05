@@ -1,6 +1,8 @@
 package framework;
 
-import java.io.IOException;
+import com.sun.tools.javac.jvm.Code;
+
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -10,7 +12,7 @@ public class CodeGenerator {
 
     public void generateHtml(Properties properties) throws Exception {
         Path path = Paths.get(getTemplateFile());
-        String destination = getDestinationPath(properties.getProperty(TemplateKeys.title.getValue()));
+        String destination = getDestinationPath(getFilePath(properties.getProperty(TemplateKeys.title.getValue())));
 
         String content = new String(Files.readAllBytes(path));
         content = content.replaceAll(getHandler(TemplateKeys.title.getValue()),
@@ -37,8 +39,7 @@ public class CodeGenerator {
         return title.toLowerCase().replaceAll(" ", "-");
     }
 
-    private String getDestinationPath(String title) {
-        String destinationFileName = null;
+    private String getDestinationPath(String destinationFileName) {
         return CodeConfiguration.DESTINATION_BASE_PATH.getValue() + destinationFileName;
     }
 
@@ -47,7 +48,7 @@ public class CodeGenerator {
     }
 
     private String getHandler(String header) {
-        return "{{" + header + "}}";
+        return "\\{\\{" + header + "\\}\\}";
     }
 
     private String getTemplateFile() {
@@ -75,13 +76,15 @@ public class CodeGenerator {
         }
     }
 
-    enum CodeConfiguration {
-        BASE_PATH("./"),
-        DESTINATION_BASE_PATH(BASE_PATH.getValue() + ""),
-        TEMPLATE_FILE(BASE_PATH.getValue() + ""),
+    static enum CodeConfiguration {
+        BASE_PATH(System.getProperty("user.dir") + "/"),
+        DESTINATION_BASE_PATH(BASE_PATH.getValue() + "p/"),
+        TEMPLATE_FILE(BASE_PATH.getValue() + "public/templates/codetemplate.html"),
         HEADER_FILE(BASE_PATH.getValue() + "header.html"),
         QUESTION_BASE_PATH(BASE_PATH.getValue() + "questions/"),
-        QUESTION_FILE_EXTENSION(".html");
+        QUESTION_FILE_EXTENSION(".question.html"),
+        SOLUTION_PATH(BASE_PATH.getValue() + "java/code/"),
+        PROPERTIES_PATH(SOLUTION_PATH.getValue() + "properties/");
 
         String value;
 
@@ -94,4 +97,16 @@ public class CodeGenerator {
         }
     }
 
+    public static void main(String[] args) {
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
+            System.out.println("Prop File: ");
+            String propFile = br.readLine();
+            Properties properties = new Properties();
+            String props = CodeConfiguration.PROPERTIES_PATH.getValue() + propFile;
+            properties.load(new FileInputStream(props));
+            new CodeGenerator().generateHtml(properties);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
