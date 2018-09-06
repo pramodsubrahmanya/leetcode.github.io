@@ -5,3 +5,15 @@ $.ajax({
     },
     dataType: 'html'
 });
+
+$.ajax({
+    url: "http://code.groupsone.com/public/templates/problems.html",
+    success: function (data) {
+        problemTable(data);
+    },
+    dataType: 'html'
+});
+
+function problemTable(data) {
+
+}
