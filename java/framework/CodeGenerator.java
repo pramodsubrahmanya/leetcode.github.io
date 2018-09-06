@@ -61,6 +61,7 @@ public class CodeGenerator {
         Files.write(Paths.get(destination), content.getBytes());
     }
 
+
     private String getFilePath(String title) {
         return title.toLowerCase().replaceAll(" ", "-");
     }
