@@ -32,7 +32,8 @@
     <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css">
     <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+          integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
     <!--EXTERNAL LINKS    -->
 
@@ -84,7 +85,8 @@
 
 <div class="container">
     <div class="row">
-        <a class="btn btn-warning btn-sm" href="http://code.groupsone.com"><i class="fas fa-arrow-left"></i>  All Problems</a>
+        <a class="btn btn-warning btn-sm" href="http://code.groupsone.com"><i class="fas fa-arrow-left"></i> All
+            Problems</a>
         <br>
         <br>
     </div>
@@ -150,6 +152,13 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
+/**
+ Time Complexity: O(n)
+ To check the tree is balanced, we calculate the Depth (Max Height) of the tree.
+ During the depth calculation if the difference between left node depth and right node depth
+ is > 1 , then it is not a balanced tree.
+ Solved the same logic using the below recursive method.
+ */
 public class BalancedBinaryTree {
 
     public boolean isBalanced(TreeNode root) {
@@ -163,6 +172,7 @@ public class BalancedBinaryTree {
         }
         int ldepth = depth(node.left);
         int rdepth = depth(node.right);
+        //Main condition to check the depth
         if (ldepth == -1 || rdepth == -1 || Math.abs(ldepth - rdepth) > 1) {
             return -1;
         }
@@ -220,5 +230,19 @@ public class BalancedBinaryTree {
     Disqus.</a>
 </noscript>
 
+<script>
+    $(function () {
+        var hash = window.location.hash;
+        hash && $('ul.nav a[href="' + hash + '"]').tab('show');
+
+        $('.nav-tabs a').click(function (e) {
+            $(this).tab('show');
+            var scrollmem = $('body').scrollTop() || $('html').scrollTop();
+            window.location.hash = this.hash;
+            $('html,body').scrollTop(scrollmem);
+        });
+    });
+
+</script>
 </body>
 
