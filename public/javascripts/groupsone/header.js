@@ -15,5 +15,7 @@ $.ajax({
 });
 
 function problemTable(data) {
-
+    $('#problemlinks').append(data);
+    $('#dtBasicExample').DataTable();
+    $('.dataTables_length').addClass('bs-select');
 }
