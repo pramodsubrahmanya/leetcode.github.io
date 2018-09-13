@@ -5,10 +5,19 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.Properties;
 import java.util.stream.Stream;
 
 public class CodeGenerator {
+
+    public CodeGenerator() {
+        try {
+            Files.write(Paths.get(CodeConfiguration.PROBLEMS_FILE.getValue()), "".getBytes());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     public static void main(String[] args) throws IOException {
         CodeGenerator generator = new CodeGenerator();
@@ -28,7 +37,8 @@ public class CodeGenerator {
 
     public void generateHtml(Properties properties) throws Exception {
         Path path = Paths.get(getTemplateFile());
-        String filePrefix = getFilePath(properties.getProperty(TemplateKeys.title.getValue()));
+        String title = properties.getProperty(TemplateKeys.title.getValue());
+        String filePrefix = getFilePath(title);
         String destination = getDestinationPath(filePrefix);
 
         String content = new String(Files.readAllBytes(path));
@@ -59,6 +69,15 @@ public class CodeGenerator {
         );
 
         Files.write(Paths.get(destination), content.getBytes());
+        addToIndex(filePrefix + CodeConfiguration.HTML_EXTENSION.getValue(), title, "LeetCode");
+    }
+
+    public void addToIndex(String filename, String title, String website) throws IOException {
+        String line = "<tr>\n" +
+                "    <td><a href=\"http://code.groupsone.com/p/" + filename + "\">" + title + "</a></td>\n" +
+                "    <td>" + website + "</td>\n" +
+                "</tr>";
+        Files.write(Paths.get(CodeConfiguration.PROBLEMS_FILE.getValue()), line.getBytes(), StandardOpenOption.APPEND);
     }
 
 
@@ -109,6 +128,7 @@ public class CodeGenerator {
         BASE_PATH(System.getProperty("user.dir") + "/"),
         DESTINATION_BASE_PATH(BASE_PATH.getValue() + "p/"),
         TEMPLATE_FILE(BASE_PATH.getValue() + "public/templates/codetemplate.html"),
+        PROBLEMS_FILE(BASE_PATH.getValue() + "public/templates/problems.html"),
         HEADER_FILE(BASE_PATH.getValue() + "header.html"),
         QUESTION_FILE_EXTENSION(".question.html"),
         SOLUTION_PATH(BASE_PATH.getValue() + "java/code/"),
