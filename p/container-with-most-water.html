@@ -2,7 +2,7 @@
 <head>
 
     <!--SEO    -->
-    <title>GroupsOne - {{page.title}} Solution</title>
+    <title>GroupsOne - Container With Most Water Solution</title>
     <meta name="description" content="GroupsOne - LeetCode Solutions">
     <meta property="og:url" content="http://leetcode.groupsone.com/"/>
     <meta property="og:description" content="GroupsOne - LeetCode Solutions"/>
@@ -42,7 +42,46 @@
 
 <body>
 
-{{page.header}}
+<!--    Navigation Bar-->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a href="http://groupsone.com" class="navbar-brand"><span
+                    class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span>
+                &nbsp;<b>Groups<span class="">O</span>ne !!
+                </b></a>
+            <button class="navbar-toggle" type="button" data-toggle="collapse"
+                    data-target="#navbar-main">
+                <span class="icon-bar"></span> <span class="icon-bar"></span> <span
+                    class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar-main">
+            <ul class="nav navbar-nav">
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="http://groupsone.com/">Search&nbsp;<span
+                        class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                </a></li>
+                <li><a href="http://groupsone.com/explore">Explore&nbsp;<span
+                        class="glyphicon glyphicon-leaf" aria-hidden="true"></span>
+                </a></li>
+                <li><a href="http://groupsone.com/AskGroup">Ask&nbsp;<span
+                        class="glyphicon glyphicon-globe" aria-hidden="true"></span>
+                </a></li>
+                <li><a href="http://groupsone.com/share">Add&nbsp;<span
+                        class="glyphicon glyphicon-flag" aria-hidden="true"></span>
+                </a></li>
+                <li><a href="http://learn.groupsone.com/">GRE/TOEFL
+                    Material&nbsp;&nbsp;<span class="glyphicon glyphicon-send"
+                                              aria-hidden="true"></span>
+                </a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- End of Navigation Bar-->
+
 
 <div class="container">
     <div class="row">
@@ -68,12 +107,39 @@
                 <div class="tab-content">
                     <div id="question" class="tab-pane fade in active">
                         <br>
-                        {{page.question}}
+                        <div><p>Given <i>n</i> non-negative integers <i>a<sub>1</sub></i>, <i>a<sub>2</sub></i>, ..., <i>a<sub>n&nbsp;</sub></i>,
+    where each represents a point at coordinate (<i>i</i>, <i>a<sub>i</sub></i>). <i>n</i> vertical lines are drawn such
+    that the two endpoints of line <i>i</i> is at (<i>i</i>, <i>a<sub>i</sub></i>) and (<i>i</i>, 0). Find two lines,
+    which together with x-axis forms a container, such that the container contains the most water.</p>
+
+    <p><strong>Note:&nbsp;</strong>You may not slant the container and <i>n</i> is at least 2.</p>
+
+    <p>&nbsp;</p>
+
+    <p><img alt="" src="https://s3-lc-upload.s3.amazonaws.com/uploads/2018/07/17/question_11.jpg"
+            style="width: 600px; height: 287px;"></p>
+
+    <p>
+        <small>The above vertical lines are represented by array [1,8,6,2,5,4,8,3,7]. In this case, the max area of
+            water (blue section) the container can contain&nbsp;is 49.
+        </small>
+    </p>
+
+    <p>&nbsp;</p>
+
+    <p><strong>Example:</strong></p>
+
+    <pre><strong>Input:</strong> [1,8,6,2,5,4,8,3,7]
+<strong>Output:</strong> 49</pre>
+</div>
                     </div>
                     <div id="solution" class="tab-pane fade">
                         <pre>
 <code class="java">
-{{page.solution}}
+package code;
+
+public class ContainerWithMostWater {
+}
 </code>
                         </pre>
                     </div>
@@ -100,7 +166,7 @@
 <script>
     var disqus_config = function () {
         this.page.url = window.location.href;
-        this.page.identifier = "{{page.disqus.identifier}}";
+        this.page.identifier = "container-with-most-water";
     };
     (function () { // DON'T EDIT BELOW THIS LINE
         var d = document, s = d.createElement('script');

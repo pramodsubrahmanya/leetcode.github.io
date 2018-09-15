@@ -38,7 +38,7 @@ public class CodeGenerator {
     public void generateHtml(Properties properties) throws Exception {
         Path path = Paths.get(getTemplateFile());
         String title = properties.getProperty(TemplateKeys.title.getValue());
-        String filePrefix = getFilePath(title);
+        String filePrefix = titleToFileName(title);
         String destination = getDestinationPath(filePrefix);
 
         String content = new String(Files.readAllBytes(path));
@@ -81,7 +81,7 @@ public class CodeGenerator {
     }
 
 
-    private String getFilePath(String title) {
+    public static String titleToFileName(String title) {
         return title.toLowerCase().replaceAll(" ", "-");
     }
 
