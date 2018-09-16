@@ -10,8 +10,8 @@ import java.nio.file.Paths;
 public class FileGenerator {
 
     public static void main(String[] args) throws IOException {
-        String title = "3Sum";
-        String solutionFileName = "ThreeSum";
+        String title = "Three 3Sum Closest";
+        String solutionFileName = "ThreeSumClosest";
         new FileGenerator().generate(title, solutionFileName);
     }
 
