@@ -2,7 +2,7 @@
 <head>
 
     <!--SEO    -->
-    <title>GroupsOne - Remove Duplicates from Sorted List Solution</title>
+    <title>GroupsOne - Letter Combinations of a Phone Number Solution</title>
     <meta name="description" content="GroupsOne - LeetCode Solutions">
     <meta property="og:url" content="http://leetcode.groupsone.com/"/>
     <meta property="og:description" content="GroupsOne - LeetCode Solutions"/>
@@ -107,28 +107,21 @@
                 <div class="tab-content">
                     <div id="question" class="tab-pane fade in active">
                         <br>
-                        <div>
-    <p>Given a sorted linked list, delete all duplicates such that each element appear only <em>once</em>.</p>
+                        <div><p>Given a string containing digits from <code>2-9</code> inclusive, return all possible letter combinations that the number could represent.</p>
 
-    <p><strong>Example 1:</strong></p>
+    <p>A mapping of digit to letters (just like on the telephone buttons) is given below. Note that 1 does not map to any letters.</p>
 
-    <pre><strong>Input:</strong> 1-&gt;1-&gt;2
-<strong>Output:</strong> 1-&gt;2
+    <p><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Telephone-keypad2.svg/200px-Telephone-keypad2.svg.png"></p>
+
+    <p><strong>Example:</strong></p>
+
+    <pre><strong>Input: </strong>"23"
+<strong>Output:</strong> ["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"].
 </pre>
 
-    <p><strong>Example 2:</strong></p>
+    <p><strong>Note:</strong></p>
 
-    <pre><strong>Input:</strong> 1-&gt;1-&gt;2-&gt;3-&gt;3
-<strong>Output:</strong> 1-&gt;2-&gt;3
-</pre>
-
-    <br>
-    <br>
-    <br>
-    <a target="_blank" href="https://leetcode.com/problems/letter-combinations-of-a-phone-number/description/">https://leetcode.com/problems/letter-combinations-of-a-phone-number/description/</a>
-    <br>
-    <br>
-
+    <p>Although the above answer is in lexicographical order, your answer could be in any order you want.</p>
 </div>
                     </div>
                     <div id="solution" class="tab-pane fade">
@@ -136,41 +129,85 @@
 <code class="java">
 package code;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
- * Time Complexity: O(n)
- * Space Complexity: O(1)
- * Because the input list is sorted, we can determine if a node is a duplicate by comparing its value to the node after it in the list.
- * If it is a duplicate, we change the next pointer of the current node so that it skips the next node and points directly to the one after the next node.
+ * Combinations of strings are generated using recursion.
+ * Eg: Input : 23
+ * 2 -> a,b,c
+ * 3 -> d,e,f
+ * Each character of 2 is recursively combined with
+ * sub characters of 3. Recursion is used because the input string length could be
+ * more than 2 character length.
+ * Eg2: Input: 456
+ * Combinations(456) = Characters(4) + Combinations(56).
+ *
+ * @author Pramod Nanduri (@pramodnanduri)
  */
-public class RemoveDuplicatesSortedList {
+public class LetterCombinations {
 
-    public class ListNode {
-        int val;
-        ListNode next;
+    //String initialization.
+    String[] str = {"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
 
-        ListNode(int x) {
-            val = x;
-        }
-    }
-
-    public ListNode deleteDuplicates(ListNode head) {
-        if (head == null) {
-            return null;
-        }
-        ListNode node = head;
-        while (node != null && node.next != null) {
-            if (node.val == node.next.val) {
-                node.next = node.next.next; //Skip next node iteration.
-            } else {
-                node = node.next; //Move current pointer.
+    /**
+     * Takes two lists and generated combinations of
+     * each list elements with the other list elements.
+     */
+    public List<String> combinationsOfTwoLists(List<String> a, List<String> b) {
+        List<String> result = new ArrayList<>();
+        for (int i = 0; i < a.size(); i++) {
+            for (int j = 0; j < b.size(); j++) {
+                result.add(a.get(i) + b.get(j));
             }
         }
-        return head;
+        return result;
     }
 
+    /**
+     * Method that converts string to a list of character strings.
+     * Eg: "abc" -> {"a", "b", "c"}
+     */
+    private List<String> getStringAsList(String string) {
+        List<String> result = new ArrayList<>();
+        for (int i = 0; i < string.length(); i++) {
+            result.add(string.charAt(i) + "");
+        }
+        return result;
+    }
+
+    /**
+     * Recursive logic used here.
+     */
+    public List<String> letterCombinations(String digits) {
+        List<String> result = new ArrayList<>();
+        //Base Cases.
+        if (digits.length() == 0) {
+            return result;
+        }
+        if (digits.length() == 1) {
+            result.addAll(getStringAsList(str[digits.charAt(0) - '0']));
+            return result;
+        } else {
+            //The String is split into two parts.
+            //1. First character.
+            //2. Recursive second character.
+            List<String> first = getStringAsList(str[digits.charAt(0) - '0']);
+            List<String> subs = letterCombinations(digits.substring(1));
+            result.addAll(combinationsOfTwoLists(first, subs));
+        }
+        return result;
+    }
+
+    public static void main(String[] args) {
+        String case1 = "23";
+        System.out.println(new LetterCombinations().letterCombinations(case1));
+
+        String case2 = "456";
+        System.out.println(new LetterCombinations().letterCombinations(case2));
+    }
 
 }
-
 </code>
                         </pre>
                     </div>
@@ -197,7 +234,7 @@ public class RemoveDuplicatesSortedList {
 <script>
     var disqus_config = function () {
         this.page.url = window.location.href;
-        this.page.identifier = "remove-duplicates-from-sorted-list";
+        this.page.identifier = "letter-combinations-of-a-phone-number";
     };
     (function () { // DON'T EDIT BELOW THIS LINE
         var d = document, s = d.createElement('script');
