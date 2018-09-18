@@ -1,0 +1,268 @@
+<html>
+<head>
+
+    <!--SEO    -->
+    <title>GroupsOne - Remove Nth Node From End of List Solution</title>
+    <meta name="description" content="GroupsOne - LeetCode Solutions">
+    <meta property="og:url" content="http://leetcode.groupsone.com/"/>
+    <meta property="og:description" content="GroupsOne - LeetCode Solutions"/>
+    <meta property="og:title" content="GroupsOne - LeetCode Solutions"/>
+    <meta property="og:image" content="http://learn.groupsone.com/public/images/GroupsOne.jpg"/>
+    <meta charset="UTF-8">
+    <meta name="keywords"
+          content="LeetCode solutions, interview tips, programming interview practise, LeetCode explanation">
+    <meta name="author" content="GroupsOne">
+    <!--END OF SEO -->
+
+    <!--EXTERNAL LINKS    -->
+    <!--JavaScript Includes-->
+    <script src="../public/javascripts/jquery-2.2.4.min.js" type="text/javascript"></script>
+    <script src="../public/javascripts/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../public/javascripts/groupsone/header.js" type="text/javascript"></script>
+    <script src="../public/javascripts/library.js" type="text/javascript"></script>
+    <!--<script src="http://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.min.js" type="text/javascript"></script>-->
+
+
+    <!--CSS Includes-->
+    <link rel="stylesheet" media="screen" href="../public/stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" media="screen" href="../public/stylesheets/custom.css">
+    <link rel="shortcut icon" type="image/png" href="../public/images/favicon.png">
+    <link rel="shortcut icon" type="image/png" href="../public/images/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="http://learn.groupsone.com/public/images/favicon.ico"/>
+    <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+          integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <!--EXTERNAL LINKS    -->
+
+</head>
+
+
+<body>
+
+<!--    Navigation Bar-->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a href="http://groupsone.com" class="navbar-brand"><span
+                    class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span>
+                &nbsp;<b>Groups<span class="">O</span>ne !!
+                </b></a>
+            <button class="navbar-toggle" type="button" data-toggle="collapse"
+                    data-target="#navbar-main">
+                <span class="icon-bar"></span> <span class="icon-bar"></span> <span
+                    class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar-main">
+            <ul class="nav navbar-nav">
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="http://groupsone.com/">Search&nbsp;<span
+                        class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                </a></li>
+                <li><a href="http://groupsone.com/explore">Explore&nbsp;<span
+                        class="glyphicon glyphicon-leaf" aria-hidden="true"></span>
+                </a></li>
+                <li><a href="http://groupsone.com/AskGroup">Ask&nbsp;<span
+                        class="glyphicon glyphicon-globe" aria-hidden="true"></span>
+                </a></li>
+                <li><a href="http://groupsone.com/share">Add&nbsp;<span
+                        class="glyphicon glyphicon-flag" aria-hidden="true"></span>
+                </a></li>
+                <li><a href="http://learn.groupsone.com/">GRE/TOEFL
+                    Material&nbsp;&nbsp;<span class="glyphicon glyphicon-send"
+                                              aria-hidden="true"></span>
+                </a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- End of Navigation Bar-->
+
+
+<div class="container">
+    <div class="row">
+        <a class="btn btn-warning btn-sm" href="http://code.groupsone.com"><i class="fas fa-arrow-left"></i> All
+            Solutions</a>
+        <br>
+        <br>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-8">
+            <div class="row">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item active">
+                        <a class="nav-link" data-toggle="tab" href="#question"><p class="text-success">Question</p></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="solutionTab" href="#solution" data-toggle="tab"><p class="text-danger">
+                            Solution</p></a>
+                    </li>
+                </ul>
+
+                <div class="tab-content">
+                    <div id="question" class="tab-pane fade in active">
+                        <br>
+                        <div><p>Given a linked list, remove the <em>n</em>-th node from the end of list and return its head.</p>
+
+    <p><strong>Example:</strong></p>
+
+    <pre>Given linked list: <strong>1-&gt;2-&gt;3-&gt;4-&gt;5</strong>, and <strong><em>n</em> = 2</strong>.
+
+After removing the second node from the end, the linked list becomes <strong>1-&gt;2-&gt;3-&gt;5</strong>.
+</pre>
+
+    <p><strong>Note:</strong></p>
+
+    <p>Given <em>n</em> will always be valid.</p>
+
+    <p><strong>Follow up:</strong></p>
+
+    <p>Could you do this in one pass?</p>
+
+    <br>
+    <a target="_blank" href="https://leetcode.com/problems/remove-nth-node-from-end-of-list/description/">https://leetcode.com/problems/remove-nth-node-from-end-of-list/description/</a>
+    <br>
+    <br>
+
+</div>
+                    </div>
+                    <div id="solution" class="tab-pane fade">
+                        <pre>
+<code class="java">
+package code;
+
+import java.util.List;
+
+/**
+ * Time Complexity: O(n)
+ * Space Complexity: O(3).
+ * Logic is
+ * 1. Take two pointers. One pointer points to current. Second pointer is a fast forward pointer. It first goes to place where
+ * the distance between current pointer and fast pointer is n.
+ * 2. Now traverse the list till the fast pointer reaches the end of the list. So that current pointer points to the
+ * node to be removed.
+ */
+public class RemoveNthNodeFromEndOfList {
+    public static class ListNode {
+        int val;
+        ListNode next;
+
+        ListNode(int x) {
+            val = x;
+        }
+    }
+
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        ListNode root = head;
+        ListNode current = head;
+        ListNode fastPointer = head;
+        int count = 0;
+        //Fast forward the current pointer.
+        while (count != n && fastPointer.next != null) {
+            fastPointer = fastPointer.next;
+            count++;
+        }
+        if (count == n - 1) {
+            return root.next;
+        }
+        if (count < n) {
+            return null;
+        }
+        count = 0;
+        //Traverse the list till the fast pointer is the end one.
+        while (current != null && fastPointer.next != null) {
+            current = current.next;
+            fastPointer = fastPointer.next;
+        }
+        current.next = current.next.next;
+        return root;
+    }
+
+    public static void main(String[] args) {
+        ListNode node = new ListNode(1);
+        ListNode node2 = new ListNode(2);
+        ListNode node3 = new ListNode(3);
+        ListNode node4 = new ListNode(4);
+        ListNode node5 = new ListNode(5);
+
+        node.next = node2;
+
+//        node2.next = node3;
+//        node3.next = node4;
+//        node4.next = node5;
+
+        ListNode root = new RemoveNthNodeFromEndOfList().removeNthFromEnd(node, 2);
+        System.out.println(root);
+    }
+
+}
+</code>
+                        </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+
+        </div>
+    </div>
+    <div class="row col-sm-8 text-center">
+        <button onclick="viewSolutionClick()" class="btn btn-success" id="viewSolutionBtn"> View Solution</button>
+    </div>
+    <div class="row">
+        <br><br><br>
+        <div id="disqus_thread"></div>
+    </div>
+
+</div>
+
+<script src="../public/javascripts/ga.js" type="text/javascript"></script>
+<script src="../public/javascripts/tawk.js" type="text/javascript"></script>
+
+<script>
+    var disqus_config = function () {
+        this.page.url = window.location.href;
+        this.page.identifier = "remove-nth-node-from-end-of-list";
+    };
+    (function () { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://groupsone.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<script>hljs.initHighlightingOnLoad();</script>
+<noscript>
+    Please enable JavaScript to view the <a
+        href="https://disqus.com/?ref_noscript">comments powered by
+    Disqus.</a>
+</noscript>
+
+<script>
+    function viewSolutionClick() {
+        $("#solutionTab").click();
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        $("#viewSolutionBtn").hide();
+    }
+
+    $(function () {
+        var hash = window.location.hash;
+        hash && $('ul.nav a[href="' + hash + '"]').tab('show');
+
+        $('.nav-tabs a').click(function (e) {
+            $(this).tab('show');
+            // var scrollmem = $('body').scrollTop() || $('html').scrollTop();
+            // window.location.hash = this.hash;
+            // $('html,body').scrollTop(scrollmem);
+        });
+    });
+
+</script>
+</body>
+

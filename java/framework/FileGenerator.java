@@ -10,8 +10,8 @@ import java.nio.file.Paths;
 public class FileGenerator {
 
     public static void main(String[] args) throws IOException {
-        String title = "Letter Combinations of a Phone Number";
-        String solutionFileName = "LetterCombinations";
+        String title = "Remove Nth Node From End of List";
+        String solutionFileName = "RemoveNthNodeFromEndOfList";
         new FileGenerator().generate(title, solutionFileName);
     }
 
