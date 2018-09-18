@@ -10,8 +10,8 @@ import java.nio.file.Paths;
 public class FileGenerator {
 
     public static void main(String[] args) throws IOException {
-        String title = "Remove Nth Node From End of List";
-        String solutionFileName = "RemoveNthNodeFromEndOfList";
+        String title = "Valid Parentheses";
+        String solutionFileName = "ValidParentheses";
         new FileGenerator().generate(title, solutionFileName);
     }
 
