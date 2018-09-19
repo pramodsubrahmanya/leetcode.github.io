@@ -2,7 +2,7 @@
 <head>
 
     <!--SEO    -->
-    <title>GroupsOne - Longest Common Prefix Solution</title>
+    <title>GroupsOne - Merge Two Sorted Lists Solution</title>
     <meta name="description" content="GroupsOne - LeetCode Solutions">
     <meta property="og:url" content="http://leetcode.groupsone.com/"/>
     <meta property="og:description" content="GroupsOne - LeetCode Solutions"/>
@@ -107,70 +107,101 @@
                 <div class="tab-content">
                     <div id="question" class="tab-pane fade in active">
                         <br>
-                        <div><p>Write a function to find the longest common prefix string amongst an array of strings.</p>
+                        <div><p>Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists.</p>
 
-    <p>If there is no common prefix, return an empty string <code>""</code>.</p>
-
-    <p><strong>Example 1:</strong></p>
-
-    <pre><strong>Input: </strong>["flower","flow","flight"]
-<strong>Output:</strong> "fl"
+    <p><b>Example:</b>
+    </p><pre><b>Input:</b> 1-&gt;2-&gt;4, 1-&gt;3-&gt;4
+<b>Output:</b> 1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4
 </pre>
-
-    <p><strong>Example 2:</strong></p>
-
-    <pre><strong>Input: </strong>["dog","racecar","car"]
-<strong>Output:</strong> ""
-<strong>Explanation:</strong> There is no common prefix among the input strings.
-</pre>
-
-    <p><strong>Note:</strong></p>
-
-    <p>All given inputs are in lowercase letters <code>a-z</code>.</p>
+    <p></p>
 
     <br>
     <br>
-    <a target="_blank" href="https://leetcode.com/problems/longest-common-prefix/description/">https://leetcode.com/problems/longest-common-prefix/description/</a>
+    <a target="_blank" href="https://leetcode.com/problems/merge-two-sorted-lists/description/">https://leetcode.com/problems/merge-two-sorted-lists/description/</a>
     <br>
     <br>
+
+
 </div>
+
                     </div>
                     <div id="solution" class="tab-pane fade">
                         <pre>
 <code class="java">
 package code;
 
-public class LongestCommonPrefix {
+import java.util.List;
 
-    public String longestCommonPrefix(String[] strs) {
-        String result = "";
-        if (strs.length == 0) {
-            return result;
+/**
+ * Time Complexity: O(n)
+ * Merging two lists uses second half logic of Merge sort.
+ * Concept is :
+ * 1. Take each element of the firs list and compare with the
+ * first element of the second list. Whichever is the smallest add it to the result list and
+ * proceed with the next elements.
+ * 2. Once all the elements are compared, one of the two lists will have elements
+ * that will be left over without being compared.
+ * Iterate them and add those to the result list.
+ *
+ * @author Pramod ( @pramodnanduri)
+ */
+public class MergeTwoSortedLists {
+    static class ListNode {
+        int val;
+        ListNode next;
+
+        ListNode(int x) {
+            val = x;
         }
-        //Compare each character of input string with character in the same position of
-        //all the remaining characters.
-        for (int i = 0; i < strs[0].length(); i++) {
-            for (int j = 1; j < strs.length; j++) {
-                try {
-                    if (strs[0].charAt(i) != strs[j].charAt(i)) {
-                        return result;
-                    }
-                } catch (Exception ex) {
-                    return result; //If the Length crossed the minimum length string.
-                }
-            }
-            result += strs[0].charAt(i);
-        }
-        return result;
     }
+
+    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+        ListNode node = new ListNode(-1);
+        ListNode result = node;
+        ListNode first = l1;
+        ListNode second = l2;
+        //Comapre with the first element of the second list and add to result list.
+        while (first != null && second != null) {
+            if (first.val < second.val) {
+                node.next = new ListNode(first.val);
+                first = first.next;
+            } else {
+                node.next = new ListNode(second.val);
+                second = second.next;
+            }
+            node = node.next;
+        }
+
+        //Loops for iterating the left over elements
+        while (first != null) {
+            node.next = new ListNode(first.val);
+            first = first.next;
+            node = node.next;
+        }
+
+        while (second != null) {
+            node.next = new ListNode(second.val);
+            second = second.next;
+            node = node.next;
+        }
+        return result.next;
+    }
+
 
     public static void main(String[] args) {
-        String[] strs = {"flower", "flow", "flight"};
-        System.out.println(new LongestCommonPrefix().longestCommonPrefix(strs));
+        //Input: 1->2->4, 1->3->4;
+        ListNode first = new ListNode(-9);
+        ListNode node2 = new ListNode(3);
+
+        ListNode node4 = new ListNode(5);
+        ListNode node3 = new ListNode(7);
+
+        first.next = node2;
+        node4.next = node3;
+
+        System.out.println(new MergeTwoSortedLists().mergeTwoLists(first, node4));
     }
-
 }
-
 </code>
                         </pre>
                     </div>
@@ -197,7 +228,7 @@ public class LongestCommonPrefix {
 <script>
     var disqus_config = function () {
         this.page.url = window.location.href;
-        this.page.identifier = "longest-common-prefix";
+        this.page.identifier = "merge-two-sorted-lists";
     };
     (function () { // DON'T EDIT BELOW THIS LINE
         var d = document, s = d.createElement('script');
