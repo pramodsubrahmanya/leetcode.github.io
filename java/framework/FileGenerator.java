@@ -10,8 +10,8 @@ import java.nio.file.Paths;
 public class FileGenerator {
 
     public static void main(String[] args) throws IOException {
-        String title = "Merge Two Sorted Lists";
-        String solutionFileName = "MergeTwoSortedLists";
+        String title = "Generate Parentheses";
+        String solutionFileName = "GenerateParentheses";
         new FileGenerator().generate(title, solutionFileName);
     }
 
