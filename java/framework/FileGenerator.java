@@ -7,8 +7,8 @@ import java.nio.file.Paths;
 public class FileGenerator {
 
     public static void main(String[] args) throws IOException {
-        String title = "Merge k Sorted Lists";
-        String solutionFileName = "MergeKSortedLists";
+        String title = "Swap Nodes in Pairs";
+        String solutionFileName = "SwapNodesInPairs";
         new FileGenerator().generate(title, solutionFileName);
     }
 
