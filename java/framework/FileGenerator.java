@@ -1,17 +1,14 @@
 package framework;
 
-import com.sun.tools.javac.jvm.Code;
-
 import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class FileGenerator {
 
     public static void main(String[] args) throws IOException {
-        String title = "Generate Parentheses";
-        String solutionFileName = "GenerateParentheses";
+        String title = "Merge k Sorted Lists";
+        String solutionFileName = "MergeKSortedLists";
         new FileGenerator().generate(title, solutionFileName);
     }
 
