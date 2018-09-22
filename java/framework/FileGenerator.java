@@ -7,8 +7,8 @@ import java.nio.file.Paths;
 public class FileGenerator {
 
     public static void main(String[] args) throws IOException {
-        String title = "Reverse Linked List";
-        String solutionFileName = "ReverseLinkedList";
+        String title = "Reverse Nodes in k-Group";
+        String solutionFileName = "ReverseListNodesInKGroups";
         new FileGenerator().generate(title, solutionFileName);
     }
 

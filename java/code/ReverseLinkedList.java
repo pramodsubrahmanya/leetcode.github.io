@@ -13,7 +13,7 @@ public class ReverseLinkedList {
         ListNode current = head;
         ListNode prev = null;
         ListNode next = current;
-        while (next != null) {
+        while (current != null) {
             next = current.next; //Remembering next node to go.
             current.next = prev; //Modify current pointers reference.
             prev = current; //Modify previous pointer reference.
