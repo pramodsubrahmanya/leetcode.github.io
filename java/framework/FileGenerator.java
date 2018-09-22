@@ -7,8 +7,8 @@ import java.nio.file.Paths;
 public class FileGenerator {
 
     public static void main(String[] args) throws IOException {
-        String title = "Swap Nodes in Pairs";
-        String solutionFileName = "SwapNodesInPairs";
+        String title = "Reverse Linked List";
+        String solutionFileName = "ReverseLinkedList";
         new FileGenerator().generate(title, solutionFileName);
     }
 
