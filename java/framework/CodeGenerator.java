@@ -51,10 +51,10 @@ public class CodeGenerator {
         );
 
         //Question
+        String question = readFile(CodeConfiguration.QUESTION_BASE_PATH.getValue() + filePrefix
+                + CodeConfiguration.QUESTION_FILE_EXTENSION.getValue());
         content = content.replaceAll(getHandler(TemplateKeys.question.getValue()),
-                readFile(CodeConfiguration.QUESTION_BASE_PATH.getValue() + filePrefix
-                        + CodeConfiguration.QUESTION_FILE_EXTENSION.getValue())
-        );
+                question);
 
         //Solution
         String solutionPath = CodeConfiguration.SOLUTION_PATH.getValue()
@@ -69,7 +69,11 @@ public class CodeGenerator {
         );
 
         Files.write(Paths.get(destination), content.getBytes());
-        addToIndex(filePrefix + CodeConfiguration.HTML_EXTENSION.getValue(), title, "LeetCode");
+        if (question != null && !question.isEmpty()) {
+            addToIndex(filePrefix + CodeConfiguration.HTML_EXTENSION.getValue(), title, "LeetCode");
+        } else {
+            System.out.println("Empty question" + filePrefix);
+        }
     }
 
     public void addToIndex(String filename, String title, String website) throws IOException {
