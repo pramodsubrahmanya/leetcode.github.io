@@ -1,0 +1,232 @@
+<html>
+<head>
+
+    <!--SEO    -->
+    <title>GroupsOne - First Bad Version Solution</title>
+    <meta name="description" content="GroupsOne - LeetCode Solutions">
+    <meta property="og:url" content="http://leetcode.groupsone.com/"/>
+    <meta property="og:description" content="GroupsOne - LeetCode Solutions"/>
+    <meta property="og:title" content="GroupsOne - LeetCode Solutions"/>
+    <meta property="og:image" content="http://learn.groupsone.com/public/images/GroupsOne.jpg"/>
+    <meta charset="UTF-8">
+    <meta name="keywords"
+          content="LeetCode solutions, interview tips, programming interview practise, LeetCode explanation">
+    <meta name="author" content="GroupsOne">
+    <!--END OF SEO -->
+
+    <!--EXTERNAL LINKS    -->
+    <!--JavaScript Includes-->
+    <script src="../public/javascripts/jquery-2.2.4.min.js" type="text/javascript"></script>
+    <script src="../public/javascripts/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../public/javascripts/groupsone/header.js" type="text/javascript"></script>
+    <script src="../public/javascripts/library.js" type="text/javascript"></script>
+    <!--<script src="http://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.min.js" type="text/javascript"></script>-->
+
+
+    <!--CSS Includes-->
+    <link rel="stylesheet" media="screen" href="../public/stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" media="screen" href="../public/stylesheets/custom.css">
+    <link rel="shortcut icon" type="image/png" href="../public/images/favicon.png">
+    <link rel="shortcut icon" type="image/png" href="../public/images/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="http://learn.groupsone.com/public/images/favicon.ico"/>
+    <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+          integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <!--EXTERNAL LINKS    -->
+
+</head>
+
+
+<body>
+
+<!--    Navigation Bar-->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a href="http://groupsone.com" class="navbar-brand"><span
+                    class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span>
+                &nbsp;<b>Groups<span class="">O</span>ne !!
+                </b></a>
+            <button class="navbar-toggle" type="button" data-toggle="collapse"
+                    data-target="#navbar-main">
+                <span class="icon-bar"></span> <span class="icon-bar"></span> <span
+                    class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar-main">
+            <ul class="nav navbar-nav">
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="http://groupsone.com/">Search&nbsp;<span
+                        class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                </a></li>
+                <li><a href="http://groupsone.com/explore">Explore&nbsp;<span
+                        class="glyphicon glyphicon-leaf" aria-hidden="true"></span>
+                </a></li>
+                <li><a href="http://groupsone.com/AskGroup">Ask&nbsp;<span
+                        class="glyphicon glyphicon-globe" aria-hidden="true"></span>
+                </a></li>
+                <li><a href="http://groupsone.com/share">Add&nbsp;<span
+                        class="glyphicon glyphicon-flag" aria-hidden="true"></span>
+                </a></li>
+                <li><a href="http://learn.groupsone.com/">GRE/TOEFL
+                    Material&nbsp;&nbsp;<span class="glyphicon glyphicon-send"
+                                              aria-hidden="true"></span>
+                </a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- End of Navigation Bar-->
+
+
+<div class="container">
+    <div class="row">
+        <a class="btn btn-warning btn-sm" href="http://code.groupsone.com"><i class="fas fa-arrow-left"></i> All
+            Solutions</a>
+        <br>
+        <br>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-8">
+            <div class="row">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item active">
+                        <a class="nav-link" data-toggle="tab" href="#question"><p class="text-success">Question</p></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="solutionTab" href="#solution" data-toggle="tab"><p class="text-danger">
+                            Solution</p></a>
+                    </li>
+                </ul>
+
+                <div class="tab-content">
+                    <div id="question" class="tab-pane fade in active">
+                        <h4>First Bad Version</h4>
+                        <br>
+                        <div><p>You are a product manager and currently leading a team to develop a new product. Unfortunately, the latest version of your product fails the quality check. Since each version is developed based on the previous version, all the versions after a bad version are also bad.</p>
+
+    <p>Suppose you have <code>n</code> versions <code>[1, 2, ..., n]</code> and you want to find out the first bad one, which causes all the following ones to be bad.</p>
+
+    <p>You are given an API <code>bool isBadVersion(version)</code> which will return whether <code>version</code> is bad. Implement a function to find the first bad version. You should minimize the number of calls to the API.</p>
+
+    <p><b>Example:</b></p>
+
+    <pre>Given n = 5, and version = 4 is the first bad version.
+
+<code>call isBadVersion(3) -&gt; false
+call isBadVersion(5)&nbsp;-&gt; true
+call isBadVersion(4)&nbsp;-&gt; true
+
+Then 4 is the first bad version.&nbsp;</code>
+
+        <br>
+        <br>
+        <a target="_blank" href="https://leetcode.com/problems/first-bad-version/description/">https://leetcode.com/problems/first-bad-version/description/</a>
+</pre></div>
+                    </div>
+                    <div id="solution" class="tab-pane fade">
+                        <pre>
+<code class="java">
+package code;
+
+public class FirstBadVersion {
+
+    boolean isBadVersion(int mid) {
+        //This is given in the question.
+        return false;
+    }
+
+    public int search(int n, int start, int end) {
+        int mid = start + (end - start) / 2;
+        if (start >= end) {
+            return start;
+        }
+        if (isBadVersion(mid)) {
+            return search(n, start, mid);
+        } else {
+            return search(n, mid + 1, end);
+        }
+    }
+
+
+    public int firstBadVersion(int n) {
+        return search(n, 1, n);
+    }
+
+}
+</code>
+                        </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+
+        </div>
+    </div>
+    <div class="row col-sm-8 text-center">
+        <button onclick="viewSolutionClick()" class="btn btn-success" id="viewSolutionBtn"> View Solution</button>
+    </div>
+    <div class="row">
+        <br><br><br>
+        <div id="disqus_thread"></div>
+    </div>
+
+    <div id="adSpot" class="row"></div>
+
+</div>
+
+<script src="../public/javascripts/ga.js" type="text/javascript"></script>
+<script src="../public/javascripts/tawk.js" type="text/javascript"></script>
+
+<script>
+    var disqus_config = function () {
+        this.page.url = window.location.href;
+        this.page.identifier = "first-bad-version";
+    };
+    (function () { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://groupsone.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<script>hljs.initHighlightingOnLoad();</script>
+<noscript>
+    Please enable JavaScript to view the <a
+        href="https://disqus.com/?ref_noscript">comments powered by
+    Disqus.</a>
+</noscript>
+
+<script>
+    function viewSolutionClick() {
+        $("#solutionTab").click();
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        $("#viewSolutionBtn").hide();
+    }
+
+    $(function () {
+        var hash = window.location.hash;
+        hash && $('ul.nav a[href="' + hash + '"]').tab('show');
+
+        $('.nav-tabs a').click(function (e) {
+            $(this).tab('show');
+            // var scrollmem = $('body').scrollTop() || $('html').scrollTop();
+            // window.location.hash = this.hash;
+            // $('html,body').scrollTop(scrollmem);
+        });
+    });
+
+</script>
+
+<script src="../public/javascripts/chitika.js" type="text/javascript"></script>
+<script type="text/javascript" src="//cdn.chitika.net/getads.js" async></script>
+
+</body>
+
