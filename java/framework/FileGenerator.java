@@ -7,8 +7,8 @@ import java.nio.file.Paths;
 public class FileGenerator {
 
     public static void main(String[] args) throws IOException {
-        String title = "Largest Number At Least Twice of Others";
-        String solutionFileName = "LargestNumberAtLeastTwiceOfOthers";
+        String title = "Degree of an Array";
+        String solutionFileName = "DegreeOfAnArray";
         new FileGenerator().generate(title, solutionFileName);
     }
 
