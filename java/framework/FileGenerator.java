@@ -7,8 +7,8 @@ import java.nio.file.Paths;
 public class FileGenerator {
 
     public static void main(String[] args) throws IOException {
-        String title = "Excel Sheet Column Number";
-        String solutionFileName = "ExcelSheetColumnNumber";
+        String title = "Binary Gap";
+        String solutionFileName = "BinaryGap";
         new FileGenerator().generate(title, solutionFileName);
     }
 

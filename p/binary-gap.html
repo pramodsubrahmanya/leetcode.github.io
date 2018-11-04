@@ -1,0 +1,298 @@
+<html>
+<head>
+
+    <!--SEO    -->
+    <title>GroupsOne - Binary Gap Solution</title>
+    <meta name="description" content="GroupsOne - LeetCode Solutions">
+    <meta property="og:url" content="http://leetcode.groupsone.com/"/>
+    <meta property="og:description" content="GroupsOne - LeetCode Solutions"/>
+    <meta property="og:title" content="GroupsOne - LeetCode Solutions"/>
+    <meta property="og:image" content="http://learn.groupsone.com/public/images/GroupsOne.jpg"/>
+    <meta charset="UTF-8">
+    <meta name="keywords"
+          content="LeetCode solutions, interview tips, programming interview practise, LeetCode explanation">
+    <meta name="author" content="GroupsOne">
+    <!--END OF SEO -->
+
+    <!--EXTERNAL LINKS    -->
+    <!--JavaScript Includes-->
+    <script src="../public/javascripts/jquery-2.2.4.min.js" type="text/javascript"></script>
+    <script src="../public/javascripts/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../public/javascripts/groupsone/header.js" type="text/javascript"></script>
+    <script src="../public/javascripts/library.js" type="text/javascript"></script>
+    <!--<script src="http://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.min.js" type="text/javascript"></script>-->
+
+
+    <!--CSS Includes-->
+    <link rel="stylesheet" media="screen" href="../public/stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" media="screen" href="../public/stylesheets/custom.css">
+    <link rel="shortcut icon" type="image/png" href="../public/images/favicon.png">
+    <link rel="shortcut icon" type="image/png" href="../public/images/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="http://learn.groupsone.com/public/images/favicon.ico"/>
+    <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+          integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <!--EXTERNAL LINKS    -->
+
+</head>
+
+
+<body>
+
+<!--    Navigation Bar-->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a href="http://groupsone.com" class="navbar-brand"><span
+                    class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span>
+                &nbsp;<b>Groups<span class="">O</span>ne !!
+                </b></a>
+            <button class="navbar-toggle" type="button" data-toggle="collapse"
+                    data-target="#navbar-main">
+                <span class="icon-bar"></span> <span class="icon-bar"></span> <span
+                    class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar-main">
+            <ul class="nav navbar-nav">
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="http://groupsone.com/">Search&nbsp;<span
+                        class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                </a></li>
+                <li><a href="http://groupsone.com/explore">Explore&nbsp;<span
+                        class="glyphicon glyphicon-leaf" aria-hidden="true"></span>
+                </a></li>
+                <li><a href="http://groupsone.com/AskGroup">Ask&nbsp;<span
+                        class="glyphicon glyphicon-globe" aria-hidden="true"></span>
+                </a></li>
+                <li><a href="http://groupsone.com/share">Add&nbsp;<span
+                        class="glyphicon glyphicon-flag" aria-hidden="true"></span>
+                </a></li>
+                <li><a href="http://learn.groupsone.com/">GRE/TOEFL
+                    Material&nbsp;&nbsp;<span class="glyphicon glyphicon-send"
+                                              aria-hidden="true"></span>
+                </a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- End of Navigation Bar-->
+
+
+<div class="container">
+    <div class="row">
+        <a class="btn btn-warning btn-sm" href="http://code.groupsone.com"><i class="fas fa-arrow-left"></i> All
+            Solutions</a>
+        <br>
+        <br>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-8">
+            <div class="row">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item active">
+                        <a class="nav-link" data-toggle="tab" href="#question"><p class="text-success">Question</p></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="solutionTab" href="#solution" data-toggle="tab"><p class="text-danger">
+                            Solution</p></a>
+                    </li>
+                </ul>
+
+                <div class="tab-content">
+                    <div id="question" class="tab-pane fade in active">
+                        <h4>Binary Gap</h4>
+                        <br>
+                        <div><p>Given a positive&nbsp;integer <code>N</code>, find and return the longest distance between two consecutive 1's in the binary representation of <code>N</code>.</p>
+
+    <p>If there aren't two consecutive 1's, return <font face="monospace">0</font>.</p>
+
+    <p>&nbsp;</p>
+
+    <div>
+        <div>
+            <div>
+                <ul>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <p><strong>Example 1:</strong></p>
+
+        <pre><strong>Input: </strong><span id="example-input-1-1">22</span>
+<strong>Output: </strong>2
+<strong>Explanation: </strong>
+22 in binary is 0b10110.
+In the binary representation of 22, there are three ones, and two consecutive pairs of 1's.
+The first consecutive pair of 1's have distance 2.
+The second consecutive pair of 1's have distance 1.
+The answer is the largest of these two distances, which is 2.
+</pre>
+
+        <div>
+            <p><strong>Example 2:</strong></p>
+
+            <pre><strong>Input: </strong><span id="example-input-2-1">5</span>
+<strong>Output: </strong><span id="example-output-2">2</span>
+<strong>Explanation: </strong>
+5 in binary is 0b101.
+</pre>
+
+            <div>
+                <p><strong>Example 3:</strong></p>
+
+                <pre><strong>Input: </strong><span id="example-input-3-1">6</span>
+<strong>Output: </strong><span id="example-output-3">1</span>
+<strong>Explanation: </strong>
+6 in binary is 0b110.
+</pre>
+
+                <div>
+                    <p><strong>Example 4:</strong></p>
+
+                    <pre><strong>Input: </strong><span id="example-input-4-1">8</span>
+<strong>Output: </strong><span id="example-output-4">0</span>
+<strong>Explanation: </strong>
+8 in binary is 0b1000.
+There aren't any consecutive pairs of 1's in the binary representation of 8, so we return 0.
+</pre>
+
+                    <p>&nbsp;</p>
+
+                    <div>
+                        <div>
+                            <div>
+                                <p><strong>Note:</strong></p>
+
+                                <ul>
+                                    <li><code>1 &lt;= N &lt;= 10^9</code></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <a href="https://leetcode.com/problems/binary-gap/description/" target="_blank">https://leetcode.com/problems/binary-gap/description/</a>
+    <br>
+    <br>
+</div>
+                    </div>
+                    <div id="solution" class="tab-pane fade">
+                        <pre>
+<code class="java">
+package code;
+
+public class BinaryGap {
+
+    public int binaryGap(int N) {
+        int last = -1;
+        int first = -1;
+        int i = 1;
+        int max = 0;
+        while (N != 0) {
+            int rem = N % 2;
+            if (rem == 1) {
+                if (first == -1) {
+                    first = i;
+                } else {
+                    int dist = i - first;
+                    if (max < dist) {
+                        max = dist;
+                    }
+                    first = i;
+                }
+            }
+            N = N / 2;
+            i++;
+        }
+        return max;
+    }
+
+    public static void main(String[] args) {
+        int N = 8;
+//        N = 22;
+        System.out.println(new BinaryGap().binaryGap(N));
+    }
+
+}
+</code>
+                        </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+
+        </div>
+    </div>
+    <div class="row col-sm-8 text-center">
+        <button onclick="viewSolutionClick()" class="btn btn-success" id="viewSolutionBtn"> View Solution</button>
+    </div>
+    <div class="row">
+        <br><br><br>
+        <div id="disqus_thread"></div>
+    </div>
+
+    <div id="adSpot" class="row"></div>
+
+</div>
+
+<script src="../public/javascripts/ga.js" type="text/javascript"></script>
+<script src="../public/javascripts/tawk.js" type="text/javascript"></script>
+
+<script>
+    var disqus_config = function () {
+        this.page.url = window.location.href;
+        this.page.identifier = "binary-gap";
+    };
+    (function () { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://groupsone.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<script>hljs.initHighlightingOnLoad();</script>
+<noscript>
+    Please enable JavaScript to view the <a
+        href="https://disqus.com/?ref_noscript">comments powered by
+    Disqus.</a>
+</noscript>
+
+<script>
+    function viewSolutionClick() {
+        $("#solutionTab").click();
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        $("#viewSolutionBtn").hide();
+    }
+
+    $(function () {
+        var hash = window.location.hash;
+        hash && $('ul.nav a[href="' + hash + '"]').tab('show');
+
+        $('.nav-tabs a').click(function (e) {
+            $(this).tab('show');
+            // var scrollmem = $('body').scrollTop() || $('html').scrollTop();
+            // window.location.hash = this.hash;
+            // $('html,body').scrollTop(scrollmem);
+        });
+    });
+
+</script>
+
+<script src="../public/javascripts/chitika.js" type="text/javascript"></script>
+<script type="text/javascript" src="//cdn.chitika.net/getads.js" async></script>
+
+</body>
+
