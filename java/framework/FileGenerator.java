@@ -7,8 +7,8 @@ import java.nio.file.Paths;
 public class FileGenerator {
 
     public static void main(String[] args) throws IOException {
-        String title = "Degree of an Array";
-        String solutionFileName = "DegreeOfAnArray";
+        String title = "Search Insert Position";
+        String solutionFileName = "SearchInsertPosition";
         new FileGenerator().generate(title, solutionFileName);
     }
 
