@@ -23,7 +23,7 @@ public class SearchInsertPosition {
                 end = mid;
             }
         }
-        if (start == end) {
+        if (start == end) { //This is the case if input array is : {3} target 3.
             if (target == nums[start]) {
                 return start;
             } else if (target < nums[start]) {
