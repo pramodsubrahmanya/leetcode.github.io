@@ -7,8 +7,8 @@ import java.nio.file.Paths;
 public class FileGenerator {
 
     public static void main(String[] args) throws IOException {
-        String title = "First Bad Version";
-        String solutionFileName = "FirstBadVersion";
+        String title = "Largest Number At Least Twice of Others";
+        String solutionFileName = "LargestNumberAtLeastTwiceOfOthers";
         new FileGenerator().generate(title, solutionFileName);
     }
 
