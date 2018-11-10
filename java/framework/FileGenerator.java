@@ -7,8 +7,8 @@ import java.nio.file.Paths;
 public class FileGenerator {
 
     public static void main(String[] args) throws IOException {
-        String title = "Happy Number";
-        String solutionFileName = "HappyNumber";
+        String title = "Maximum Length of Pair Chain";
+        String solutionFileName = "MaximumLengthOfPairChain";
         new FileGenerator().generate(title, solutionFileName);
     }
 
