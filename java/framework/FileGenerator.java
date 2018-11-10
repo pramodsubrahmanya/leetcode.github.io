@@ -7,8 +7,8 @@ import java.nio.file.Paths;
 public class FileGenerator {
 
     public static void main(String[] args) throws IOException {
-        String title = "Maximum Length of Pair Chain";
-        String solutionFileName = "MaximumLengthOfPairChain";
+        String title = "Maximum Depth of Binary Tree";
+        String solutionFileName = "MaximumDepthOfBinaryTree";
         new FileGenerator().generate(title, solutionFileName);
     }
 

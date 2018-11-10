@@ -2,7 +2,7 @@
 <head>
 
     <!--SEO    -->
-    <title>GroupsOne - Maximum Length of Pair Chain Solution</title>
+    <title>GroupsOne - Maximum Depth of Binary Tree Solution</title>
     <meta name="description" content="GroupsOne - LeetCode Solutions">
     <meta property="og:url" content="http://leetcode.groupsone.com/"/>
     <meta property="og:description" content="GroupsOne - LeetCode Solutions"/>
@@ -106,45 +106,34 @@
 
                 <div class="tab-content">
                     <div id="question" class="tab-pane fade in active">
-                        <h4>Maximum Length of Pair Chain</h4>
+                        <h4>Maximum Depth of Binary Tree</h4>
                         <br>
-                        <div><p>
-    You are given <code>n</code> pairs of numbers. In every pair, the first number is always smaller than the second
-    number.
-</p>
+                        <div><p>Given a binary tree, find its maximum depth.</p>
 
-    <p>
-        Now, we define a pair <code>(c, d)</code> can follow another pair <code>(a, b)</code> if and only if <code>b
-        &lt; c</code>. Chain of pairs can be formed in this fashion.
-    </p>
+    <p>The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf
+        node.</p>
 
-    <p>
-        Given a set of pairs, find the length longest chain which can be formed. You needn't use up all the given pairs.
-        You can select pairs in any order.
-    </p>
+    <p><strong>Note:</strong>&nbsp;A leaf is a node with no children.</p>
 
+    <p><strong>Example:</strong></p>
 
-    <p><b>Example 1:</b><br>
-    </p>
-    <pre><b>Input:</b> [[1,2], [2,3], [3,4]]
-<b>Output:</b> 2
-<b>Explanation:</b> The longest chain is [1,2] -&gt; [3,4]
-</pre>
-    <p></p>
+    <p>Given binary tree <code>[3,9,20,null,null,15,7]</code>,</p>
 
-    <p><b>Note:</b><br>
-    </p>
-    <ol>
-        <li>The number of given pairs will be in the range [1, 1000].</li>
-    </ol>
-    <p></p>
+    <pre>    3
+   / 
+  9  20
+    /  
+   15   7</pre>
+
+    <p>return its depth = 3.</p>
 
     <br>
     <br>
 
-    <a href="https://leetcode.com/problems/maximum-length-of-pair-chain/description/" target="_blank">https://leetcode.com/problems/maximum-length-of-pair-chain/description/</a>
+    <a href="https://leetcode.com/problems/maximum-depth-of-binary-tree/description/" target="_blank">https://leetcode.com/problems/maximum-depth-of-binary-tree/description/</a>
     <br>
     <br>
+
 
 </div>
                     </div>
@@ -153,71 +142,29 @@
 <code class="java">
 package code;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.PriorityQueue;
-import java.util.Queue;
-
 /**
- * Priority queue based solution.
- * Add the Pairs say (a,b) to the queue by sorting the elements using b.
- * Now iterate the queue by keeping track of the last and current and comparign the
- * pairs by a.
+ * Current depth is 1 if node is not null.
+ * So adding 1 + maximum of (max depth of left tree , max depth of right tree).
  */
-public class MaximumLengthOfPairChain {
+public class MaximumDepthOfBinaryTree {
 
-    class Pair {
-        int a;
-        int b;
-
-        Pair(int a, int b) {
-            this.a = a;
-            this.b = b;
+    public int maxDepth(TreeNode root) {
+        if (root == null) {
+            return 0;
         }
+        return 1 + Math.max(maxDepth(root.left), maxDepth(root.right));
     }
 
-    public int findLongestChain(int[][] pairs) {
 
-        Queue<Pair> queue = new PriorityQueue<>(new Comparator<Pair>() {
-            @Override
-            public int compare(Pair o1, Pair o2) {
-                return o1.b >= o2.b ? 1 : -1;
-            }
-        });
-        for (int i = 0; i < pairs.length; i++) {
-            queue.add(new Pair(pairs[i][0], pairs[i][1]));
-        }
+}
 
-        int length = 1;
-        Pair last = queue.poll();
-        while (!queue.isEmpty()) {
-            Pair current = queue.poll();
-            if (current.a > last.b) {
-                last = current;
-                length++;
-            }
-        }
+class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
 
-        return length;
-    }
-
-    public static void main(String[] args) {
-        int[][] pairs = new int[][]{
-                {1, 2},
-                {2, 3},
-                {3, 4}
-        };
-
-        int[][] pairs1 = new int[][]{
-                {1, 4},
-                {2, 3},
-                {5, 9},
-                {6, 7},
-                {3, 7},
-                {3, 4},
-                {8, 10}
-        };
-        System.out.println(new MaximumLengthOfPairChain().findLongestChain(pairs1));
+    TreeNode(int x) {
+        val = x;
     }
 }
 </code>
@@ -248,7 +195,7 @@ public class MaximumLengthOfPairChain {
 <script>
     var disqus_config = function () {
         this.page.url = window.location.href;
-        this.page.identifier = "maximum-length-of-pair-chain";
+        this.page.identifier = "maximum-depth-of-binary-tree";
     };
     (function () { // DON'T EDIT BELOW THIS LINE
         var d = document, s = d.createElement('script');

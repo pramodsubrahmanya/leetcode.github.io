@@ -1,5 +1,6 @@
 package code;
 
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 import java.util.Queue;
@@ -23,6 +24,7 @@ public class MaximumLengthOfPairChain {
     }
 
     public int findLongestChain(int[][] pairs) {
+
         Queue<Pair> queue = new PriorityQueue<>(new Comparator<Pair>() {
             @Override
             public int compare(Pair o1, Pair o2) {
