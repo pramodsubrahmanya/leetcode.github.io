@@ -7,8 +7,8 @@ import java.nio.file.Paths;
 public class FileGenerator {
 
     public static void main(String[] args) throws IOException {
-        String title = "Maximum Depth of Binary Tree";
-        String solutionFileName = "MaximumDepthOfBinaryTree";
+        String title = "Third Maximum Number";
+        String solutionFileName = "ThirdMaximumNumber";
         new FileGenerator().generate(title, solutionFileName);
     }
 
