@@ -2,7 +2,7 @@
 <head>
 
     <!--SEO    -->
-    <title>GroupsOne - Single Number Solution</title>
+    <title>GroupsOne - Subsets Solution</title>
     <meta name="description" content="GroupsOne - LeetCode Solutions">
     <meta property="og:url" content="http://leetcode.groupsone.com/"/>
     <meta property="og:description" content="GroupsOne - LeetCode Solutions"/>
@@ -106,31 +106,33 @@
 
                 <div class="tab-content">
                     <div id="question" class="tab-pane fade in active">
-                        <h4>Single Number</h4>
+                        <h4>Subsets</h4>
                         <br>
-                        <div><p>Given a <strong>non-empty</strong>&nbsp;array of integers, every element appears <em>twice</em> except for one.
-    Find that single one.</p>
+                        <div><p>Given a set of <strong>distinct</strong> integers, <em>nums</em>, return all possible subsets (the power set).
+</p>
 
-    <p><strong>Note:</strong></p>
+    <p><strong>Note:</strong> The solution set must not contain duplicate subsets.</p>
 
-    <p>Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?</p>
+    <p><strong>Example:</strong></p>
 
-    <p><strong>Example 1:</strong></p>
-
-    <pre><strong>Input:</strong> [2,2,1]
-<strong>Output:</strong> 1
-</pre>
-
-    <p><strong>Example 2:</strong></p>
-
-    <pre><strong>Input:</strong> [4,1,2,1,2]
-<strong>Output:</strong> 4
-</pre>
+    <pre><strong>Input:</strong> nums = [1,2,3]
+<strong>Output:</strong>
+[
+  [3],
+&nbsp; [1],
+&nbsp; [2],
+&nbsp; [1,2,3],
+&nbsp; [1,3],
+&nbsp; [2,3],
+&nbsp; [1,2],
+&nbsp; []
+]</pre>
 
     <br>
-    <a href="https://leetcode.com/problems/single-number/description/" target="_blank">
-        https://leetcode.com/problems/single-number/description/ </a>
-
+    <br>
+    <a href="https://leetcode.com/problems/subsets/description/">https://leetcode.com/problems/subsets/description/</a>
+    <br>
+    <br>
 </div>
                     </div>
                     <div id="solution" class="tab-pane fade">
@@ -138,22 +140,53 @@
 <code class="java">
 package code;
 
-/**
- *
- */
-public class SingleNumber {
+import java.util.ArrayList;
+import java.util.List;
 
-    public int singleNumber(int[] nums) {
-        int xor = 0;
-        for (int i = 0; i < nums.length; i++) {
-            xor ^= nums[i];
+/**
+ * Logic is to do the combinations with recursion.
+ * Eg: {1,2,3}
+ * It will be 1 -> {2,3} [This is the sublist after 1 , which I am keeping track using start and end index]
+ * where 2 -> {3}
+ * <p>
+ * these individual combinations add to the final list.
+ * <p>
+ * <p>
+ * Good Alternate Solution Reference: https://leetcode.com/problems/subsets/discuss/122645/3ms-easiest-solution-no-backtracking-no-bit-manipulation-no-dfs-no-bullshit
+ */
+public class Subsets {
+
+    public List<List<Integer>> subSet(int[] nums, int start, int end) {
+        List<List<Integer>> result = new ArrayList<>();
+        result.add(new ArrayList<>());
+
+        if (nums == null || nums.length == 0) {
+            return result;
         }
-        return xor;
+
+        for (int i = start; i <= end; i++) {
+            List<Integer> sublist = new ArrayList<>();
+            sublist.add(nums[i]);
+            result.add(sublist);
+            List<List<Integer>> res = subSet(nums, start + 1, end);
+            for (List<Integer> inner : res) {
+                if (inner.size() >= 1) {
+                    inner.add(0, nums[i]);
+                    result.add(inner);
+                }
+            }
+            start++;
+        }
+        return result;
+    }
+
+    public List<List<Integer>> subsets(int[] nums) {
+        return subSet(nums, 0, nums.length - 1);
     }
 
     public static void main(String[] args) {
-        int[] nums = new int[]{2,2,3};
-        System.out.println(new SingleNumber().singleNumber(nums));
+        int[] nums = new int[]{1, 2, 3};
+        System.out.println(new Subsets().subsets(nums));
     }
 }
 </code>
@@ -184,7 +217,7 @@ public class SingleNumber {
 <script>
     var disqus_config = function () {
         this.page.url = window.location.href;
-        this.page.identifier = "single-number";
+        this.page.identifier = "subsets";
     };
     (function () { // DON'T EDIT BELOW THIS LINE
         var d = document, s = d.createElement('script');

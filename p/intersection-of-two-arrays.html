@@ -2,7 +2,7 @@
 <head>
 
     <!--SEO    -->
-    <title>GroupsOne - Single Number Solution</title>
+    <title>GroupsOne - Intersection of Two Arrays Solution</title>
     <meta name="description" content="GroupsOne - LeetCode Solutions">
     <meta property="og:url" content="http://leetcode.groupsone.com/"/>
     <meta property="og:description" content="GroupsOne - LeetCode Solutions"/>
@@ -106,55 +106,59 @@
 
                 <div class="tab-content">
                     <div id="question" class="tab-pane fade in active">
-                        <h4>Single Number</h4>
+                        <h4>Intersection of Two Arrays</h4>
                         <br>
-                        <div><p>Given a <strong>non-empty</strong>&nbsp;array of integers, every element appears <em>twice</em> except for one.
-    Find that single one.</p>
-
-    <p><strong>Note:</strong></p>
-
-    <p>Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?</p>
-
-    <p><strong>Example 1:</strong></p>
-
-    <pre><strong>Input:</strong> [2,2,1]
-<strong>Output:</strong> 1
-</pre>
-
-    <p><strong>Example 2:</strong></p>
-
-    <pre><strong>Input:</strong> [4,1,2,1,2]
-<strong>Output:</strong> 4
-</pre>
-
-    <br>
-    <a href="https://leetcode.com/problems/single-number/description/" target="_blank">
-        https://leetcode.com/problems/single-number/description/ </a>
-
-</div>
+                        
                     </div>
                     <div id="solution" class="tab-pane fade">
                         <pre>
 <code class="java">
 package code;
 
-/**
- *
- */
-public class SingleNumber {
+import java.util.*;
 
-    public int singleNumber(int[] nums) {
-        int xor = 0;
-        for (int i = 0; i < nums.length; i++) {
-            xor ^= nums[i];
+public class IntersectionOfTwoArrays {
+
+    public int[] intersection(int[] nums1, int[] nums2) {
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < nums1.length; i++) {
+            Integer val = map.get(nums1[i]);
+            if (val == null) {
+                map.put(nums1[i], 0);
+                val = 0;
+            }
+            map.put(nums1[i], val++);
         }
-        return xor;
+
+        Set<Integer> set = new HashSet<>();
+        int k = 0;
+        for (int i = 0; i < nums2.length; i++) {
+            Integer val = map.get(nums2[i]);
+            if (val != null) {
+                set.add(nums2[i]);
+                val--;
+                if (val != 0) {
+                    map.put(nums2[i], val--);
+                }
+            }
+        }
+
+        int[] res = new int[set.size()];
+        int y = 0;
+        for (Integer s : set) {
+            res[y++] = s;
+        }
+
+        return res;
+
     }
 
     public static void main(String[] args) {
-        int[] nums = new int[]{2,2,3};
-        System.out.println(new SingleNumber().singleNumber(nums));
+        int[] nums1 = {1, 2, 2, 1};
+        int[] nums2 = {2, 2};
+        System.out.println(Arrays.toString(new IntersectionOfTwoArrays().intersection(nums1, nums2)));
     }
+
 }
 </code>
                         </pre>
@@ -184,7 +188,7 @@ public class SingleNumber {
 <script>
     var disqus_config = function () {
         this.page.url = window.location.href;
-        this.page.identifier = "single-number";
+        this.page.identifier = "intersection-of-two-arrays";
     };
     (function () { // DON'T EDIT BELOW THIS LINE
         var d = document, s = d.createElement('script');

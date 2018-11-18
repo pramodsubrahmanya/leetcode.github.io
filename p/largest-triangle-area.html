@@ -2,7 +2,7 @@
 <head>
 
     <!--SEO    -->
-    <title>GroupsOne - Single Number Solution</title>
+    <title>GroupsOne - Largest Triangle Area Solution</title>
     <meta name="description" content="GroupsOne - LeetCode Solutions">
     <meta property="og:url" content="http://leetcode.groupsone.com/"/>
     <meta property="og:description" content="GroupsOne - LeetCode Solutions"/>
@@ -106,31 +106,35 @@
 
                 <div class="tab-content">
                     <div id="question" class="tab-pane fade in active">
-                        <h4>Single Number</h4>
+                        <h4>Largest Triangle Area</h4>
                         <br>
-                        <div><p>Given a <strong>non-empty</strong>&nbsp;array of integers, every element appears <em>twice</em> except for one.
-    Find that single one.</p>
+                        <div><p>You have a list of points in the plane. Return the area of the largest triangle that can be formed by any 3 of
+    the points.</p>
 
-    <p><strong>Note:</strong></p>
-
-    <p>Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?</p>
-
-    <p><strong>Example 1:</strong></p>
-
-    <pre><strong>Input:</strong> [2,2,1]
-<strong>Output:</strong> 1
+    <pre><strong>Example:</strong>
+<strong>Input:</strong> points = [[0,0],[0,1],[1,0],[0,2],[2,0]]
+<strong>Output:</strong> 2
+<strong>Explanation:</strong>
+The five points are show in the figure below. The red triangle is the largest.
 </pre>
 
-    <p><strong>Example 2:</strong></p>
+    <p><img alt="" src="https://s3-lc-upload.s3.amazonaws.com/uploads/2018/04/04/1027.png"
+            style="height:328px; width:400px"></p>
 
-    <pre><strong>Input:</strong> [4,1,2,1,2]
-<strong>Output:</strong> 4
-</pre>
+    <p><strong>Notes: </strong></p>
+
+    <ul>
+        <li><code>3 &lt;= points.length &lt;= 50</code>.</li>
+        <li>No points will be duplicated.</li>
+        <li>&nbsp;<code>-50 &lt;= points[i][j] &lt;= 50</code>.</li>
+        <li>Answers within&nbsp;<code>10^-6</code>&nbsp;of the true value will be accepted as correct.</li>
+    </ul>
+
+    <p>&nbsp;</p>
 
     <br>
-    <a href="https://leetcode.com/problems/single-number/description/" target="_blank">
-        https://leetcode.com/problems/single-number/description/ </a>
-
+    <a href="https://leetcode.com/problems/largest-triangle-area/" target="_blank">https://leetcode.com/problems/largest-triangle-area/</a>
+    <br>
 </div>
                     </div>
                     <div id="solution" class="tab-pane fade">
@@ -138,23 +142,35 @@
 <code class="java">
 package code;
 
-/**
- *
- */
-public class SingleNumber {
+public class LargestTriangleArea {
 
-    public int singleNumber(int[] nums) {
-        int xor = 0;
-        for (int i = 0; i < nums.length; i++) {
-            xor ^= nums[i];
+    public double largestTriangleArea(int[][] points) {
+
+        double res = 0;
+        for (int i = 0; i < points.length; i++) {
+            for (int j = i + 1; j < points.length; j++) {
+                for (int k = j + 1; k < points.length; k++) {
+                    int min[] = points[i];
+                    int max[] = points[j];
+                    int mid[] = points[k];
+
+                    double area = Math.abs(min[0] * (max[1] - mid[1]) + max[0] * (mid[1] - min[1]) + mid[0] * (min[1] - max[1])) / (double) 2;
+                    if (area > res) {
+                        res = area;
+                    }
+                }
+            }
         }
-        return xor;
+
+        return res;
     }
 
     public static void main(String[] args) {
-        int[] nums = new int[]{2,2,3};
-        System.out.println(new SingleNumber().singleNumber(nums));
+        int[][] points = {{6, 3}, {5, 2}, {5, 8}, {0, 6}};
+        System.out.println(new LargestTriangleArea().largestTriangleArea(points));
     }
+
+
 }
 </code>
                         </pre>
@@ -184,7 +200,7 @@ public class SingleNumber {
 <script>
     var disqus_config = function () {
         this.page.url = window.location.href;
-        this.page.identifier = "single-number";
+        this.page.identifier = "largest-triangle-area";
     };
     (function () { // DON'T EDIT BELOW THIS LINE
         var d = document, s = d.createElement('script');
