@@ -1,5 +1,8 @@
 package code;
 
+/**
+ *
+ */
 public class SingleNumber {
 
     public int singleNumber(int[] nums) {
@@ -11,7 +14,7 @@ public class SingleNumber {
     }
 
     public static void main(String[] args) {
-        int[] nums = new int[]{2,1};
+        int[] nums = new int[]{2,2,3};
         System.out.println(new SingleNumber().singleNumber(nums));
     }
 }
