@@ -7,8 +7,8 @@ import java.nio.file.Paths;
 public class FileGenerator {
 
     public static void main(String[] args) throws IOException {
-        String title = "Min Cost Climbing Stairs";
-        String solutionFileName = "MinCostClimbingStairs";
+        String title = "Heaters";
+        String solutionFileName = "Heaters";
         new FileGenerator().generate(title, solutionFileName);
     }
 
