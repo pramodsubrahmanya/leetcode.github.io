@@ -10,6 +10,10 @@ public class ListNode {
 
     @Override
     public String toString() {
+        return val+"";
+    }
+
+    public String toString1() {
         StringBuilder builder = new StringBuilder();
         ListNode node = this;
         while (node != null) {

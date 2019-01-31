@@ -1,0 +1,286 @@
+<html>
+<head>
+
+    <!--SEO    -->
+    <title>GroupsOne - Heaters Solution</title>
+    <meta name="description" content="GroupsOne - LeetCode Solutions">
+    <meta property="og:url" content="http://leetcode.groupsone.com/"/>
+    <meta property="og:description" content="GroupsOne - LeetCode Solutions"/>
+    <meta property="og:title" content="GroupsOne - LeetCode Solutions"/>
+    <meta property="og:image" content="http://learn.groupsone.com/public/images/GroupsOne.jpg"/>
+    <meta charset="UTF-8">
+    <meta name="keywords"
+          content="LeetCode solutions, interview tips, programming interview practise, LeetCode explanation">
+    <meta name="author" content="GroupsOne">
+    <!--END OF SEO -->
+
+    <!--EXTERNAL LINKS    -->
+    <!--JavaScript Includes-->
+    <script src="../public/javascripts/jquery-2.2.4.min.js" type="text/javascript"></script>
+    <script src="../public/javascripts/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../public/javascripts/groupsone/header.js" type="text/javascript"></script>
+    <script src="../public/javascripts/library.js" type="text/javascript"></script>
+    <!--<script src="http://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.min.js" type="text/javascript"></script>-->
+
+
+    <!--CSS Includes-->
+    <link rel="stylesheet" media="screen" href="../public/stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" media="screen" href="../public/stylesheets/custom.css">
+    <link rel="shortcut icon" type="image/png" href="../public/images/favicon.png">
+    <link rel="shortcut icon" type="image/png" href="../public/images/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="http://learn.groupsone.com/public/images/favicon.ico"/>
+    <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+          integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <!--EXTERNAL LINKS    -->
+
+</head>
+
+
+<body>
+
+<!--    Navigation Bar-->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a href="http://groupsone.com" class="navbar-brand"><span
+                    class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span>
+                &nbsp;<b>Groups<span class="">O</span>ne !!
+                </b></a>
+            <button class="navbar-toggle" type="button" data-toggle="collapse"
+                    data-target="#navbar-main">
+                <span class="icon-bar"></span> <span class="icon-bar"></span> <span
+                    class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar-main">
+            <ul class="nav navbar-nav">
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="http://groupsone.com/">Search&nbsp;<span
+                        class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                </a></li>
+                <li><a href="http://groupsone.com/explore">Explore&nbsp;<span
+                        class="glyphicon glyphicon-leaf" aria-hidden="true"></span>
+                </a></li>
+                <li><a href="http://groupsone.com/AskGroup">Ask&nbsp;<span
+                        class="glyphicon glyphicon-globe" aria-hidden="true"></span>
+                </a></li>
+                <li><a href="http://groupsone.com/share">Add&nbsp;<span
+                        class="glyphicon glyphicon-flag" aria-hidden="true"></span>
+                </a></li>
+                <li><a href="http://learn.groupsone.com/">GRE/TOEFL
+                    Material&nbsp;&nbsp;<span class="glyphicon glyphicon-send"
+                                              aria-hidden="true"></span>
+                </a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- End of Navigation Bar-->
+
+
+<div class="container">
+    <div class="row">
+        <a class="btn btn-warning btn-sm" href="http://code.groupsone.com"><i class="fas fa-arrow-left"></i> All
+            Solutions</a>
+        <br>
+        <br>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-8">
+            <div class="row">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item active">
+                        <a class="nav-link" data-toggle="tab" href="#question"><p class="text-success">Question</p></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="solutionTab" href="#solution" data-toggle="tab"><p class="text-danger">
+                            Solution</p></a>
+                    </li>
+                </ul>
+
+                <div class="tab-content">
+                    <div id="question" class="tab-pane fade in active">
+                        <h4>Heaters</h4>
+                        <br>
+                        <div><p>Winter is coming! Your first job during the contest is to design a standard heater with fixed warm radius to
+    warm all the houses.</p>
+
+    <p>Now, you are given positions of houses and heaters on a horizontal line, find out minimum radius of heaters so
+        that all houses could be covered by those heaters.</p>
+
+    <p>So, your input will be the positions of houses and heaters seperately, and your expected output will be the
+        minimum radius standard of heaters.</p>
+
+    <p><b>Note:</b><br>
+    </p>
+    <ol>
+        <li>Numbers of houses and heaters you are given are non-negative and will not exceed 25000.</li>
+        <li>Positions of houses and heaters you are given are non-negative and will not exceed 10^9.</li>
+        <li>As long as a house is in the heaters' warm radius range, it can be warmed.</li>
+        <li>All the heaters follow your radius standard and the warm radius will the same.</li>
+    </ol>
+    <p></p>
+
+    <p><b>Example 1:</b><br>
+    </p>
+    <pre><b>Input:</b> [1,2,3],[2]
+<b>Output:</b> 1
+<b>Explanation:</b> The only heater was placed in the position 2, and if we use the radius 1 standard, then all the houses can be warmed.
+</pre>
+    <p></p>
+
+    <p><b>Example 2:</b><br>
+    </p>
+    <pre><b>Input:</b> [1,2,3,4],[1,4]
+<b>Output:</b> 1
+<b>Explanation:</b> The two heater was placed in the position 1 and 4. We need to use radius 1 standard, then all the houses can be warmed.
+</pre>
+    <p></p>
+
+    <br>
+    <a href="https://leetcode.com/problems/heaters/" target="_blank">https://leetcode.com/problems/heaters/</a>
+    <br>
+
+</div>
+                    </div>
+                    <div id="solution" class="tab-pane fade">
+                        <pre>
+<code class="java">
+package code;
+
+import java.util.Arrays;
+
+public class Heaters {
+
+    public static void main(String[] args) {
+//        int[] houses = new int[]{282475249, 622650073, 984943658, 144108930, 470211272, 101027544, 457850878, 458777923};
+//        int[] heaters = new int[]{823564440, 115438165, 784484492, 74243042, 114807987, 137522503, 441282327, 16531729, 823378840, 143542612};
+//        int[] houses = new int[]{581030105, 557810404, 146319451, 908194298, 500782188, 657821123};
+//        int[] heaters = new int[]{102246882, 269406752, 816731566, 884936716, 807130337, 578354438};
+        int[] houses = new int[]{1, 2, 3};
+        int[] heaters = new int[]{2};
+        System.out.println(new Heaters().findRadius(houses, heaters));
+    }
+
+    public int getNearest(int[] heaters, int house) {
+        int mid = 0;
+        int start = 0;
+        int end = heaters.length - 1;
+        if (heaters.length == 1) {
+            return Math.abs(house - heaters[0]);
+        }
+
+        int min = Integer.MAX_VALUE;
+        while (start < end) {
+            mid = start + (end - start) / 2;
+            if (heaters[mid] == house) {
+                return 0;
+            }
+            if (house > heaters[mid]) {
+                start = mid + 1;
+            } else if (house < heaters[mid]) {
+                end = mid;
+            }
+
+            int val = Math.min(Math.min(Math.abs(house - heaters[start]), Math.abs(house - heaters[end])),
+                    Math.abs(house - heaters[mid])
+            );
+
+            if (val < min) {
+                min = val;
+            }
+        }
+
+        return min;
+    }
+
+    public int findRadius(int[] houses, int[] heaters) {
+        Arrays.sort(heaters);
+        int max = Integer.MIN_VALUE;
+        for (int i = 0; i < houses.length; i++) {
+            int dist = getNearest(heaters, houses[i]);
+            if (dist > max) {
+                max = dist;
+            }
+        }
+        return max;
+    }
+
+}
+</code>
+                        </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+
+        </div>
+    </div>
+    <div class="row col-sm-8 text-center">
+        <button onclick="viewSolutionClick()" class="btn btn-success" id="viewSolutionBtn"> View Solution</button>
+    </div>
+    <div class="row">
+        <br><br><br>
+        <div id="disqus_thread"></div>
+    </div>
+
+    <div id="adSpot" class="row"></div>
+
+</div>
+
+<script src="../public/javascripts/ga.js" type="text/javascript"></script>
+<script src="../public/javascripts/tawk.js" type="text/javascript"></script>
+
+<script>
+    var disqus_config = function () {
+        this.page.url = window.location.href;
+        this.page.identifier = "heaters";
+    };
+    (function () { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://groupsone.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<script>hljs.initHighlightingOnLoad();</script>
+<noscript>
+    Please enable JavaScript to view the <a
+        href="https://disqus.com/?ref_noscript">comments powered by
+    Disqus.</a>
+</noscript>
+
+<script>
+    function viewSolutionClick() {
+        $("#solutionTab").click();
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        $("#viewSolutionBtn").hide();
+    }
+
+    $(function () {
+        var hash = window.location.hash;
+        hash && $('ul.nav a[href="' + hash + '"]').tab('show');
+
+        $('.nav-tabs a').click(function (e) {
+            $(this).tab('show');
+            // var scrollmem = $('body').scrollTop() || $('html').scrollTop();
+            // window.location.hash = this.hash;
+            // $('html,body').scrollTop(scrollmem);
+        });
+    });
+
+</script>
+
+<script src="../public/javascripts/chitika.js" type="text/javascript"></script>
+<script type="text/javascript" src="//cdn.chitika.net/getads.js" async></script>
+
+</body>
+
