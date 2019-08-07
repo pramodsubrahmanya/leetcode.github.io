@@ -1,5 +1,5 @@
 $.ajax({
-    url: "http://code.groupsone.com/header.html",
+    url: "/header.html",
     success: function (data) {
         $('body').append(data);
     },
@@ -7,7 +7,7 @@ $.ajax({
 });
 
 $.ajax({
-    url: "http://code.groupsone.com/public/templates/problems.html",
+    url: "./public/templates/problems.html",
     success: function (data) {
         problemTable(data);
     },
