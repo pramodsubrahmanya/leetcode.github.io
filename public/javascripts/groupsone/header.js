@@ -1,5 +1,5 @@
 $.ajax({
-    url: "/header.html",
+    url: "../header.html",
     success: function (data) {
         $('body').append(data);
     },
